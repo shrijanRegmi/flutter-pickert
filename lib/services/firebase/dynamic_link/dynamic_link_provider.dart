@@ -39,11 +39,11 @@ class DynamicLinkProvider {
           "https://mrimhotepapp.com/posts?id=$_feedId&uid=$uid",
         ),
         androidParameters: const AndroidParameters(
-          packageName: 'com.mrimhotep.app',
+          packageName: 'com.pickert.app',
           minimumVersion: 1,
         ),
         socialMetaTagParameters: SocialMetaTagParameters(
-          title: 'Mr. Imhotep',
+          title: 'Pickert',
           description: _description,
           imageUrl: Uri.parse(_photo),
         ),

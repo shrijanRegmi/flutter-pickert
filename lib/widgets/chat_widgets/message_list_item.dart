@@ -10,7 +10,7 @@ import 'package:imhotep/screens/view_stories_screen.dart';
 import 'package:imhotep/widgets/feed_widgets/premium_feed_cover.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../helpers/date_time_helper.dart';
 import '../../screens/friend_profile_screen.dart';
 import '../common_widgets/avatar_builder.dart';
@@ -133,7 +133,7 @@ class _MessageListItemState extends State<MessageListItem> {
                 text: text,
                 onOpen: (link) async {
                   try {
-                    await launch(link.url);
+                    await launchUrlString(link.url);
                   } catch (e) {
                     print(e);
                   }

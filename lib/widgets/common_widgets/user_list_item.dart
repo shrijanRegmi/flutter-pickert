@@ -70,7 +70,6 @@ class UserListItem extends StatelessWidget {
                       Text(
                         '${user.name}',
                         style: TextStyle(
-                          color: blueColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),

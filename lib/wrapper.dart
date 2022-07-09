@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imhotep/screens/auth_screen.dart';
 import 'package:imhotep/screens/home_screen.dart';
+import 'package:imhotep/screens/splash_screen.dart';
 import 'package:imhotep/sign_up/sign_up.dart';
-import 'package:imhotep/widgets/common_widgets/splash_overlay.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,6 @@ class Wrapper extends StatefulWidget {
 
 class _WrapperState extends State<Wrapper> {
   bool _loading = true;
-  bool _loadingOther = true;
 
   @override
   void initState() {
@@ -25,28 +24,14 @@ class _WrapperState extends State<Wrapper> {
         _loading = false;
       });
     });
-    Future.delayed(Duration(milliseconds: 3000), () {
-      setState(() {
-        _loadingOther = false;
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        _widgetBuilder(),
-        if (_loading) SplashOverlay(),
-      ],
-    );
-  }
-
-  Widget _widgetBuilder() {
     final _appUser = context.watch<PeamanUser?>();
-    if (_appUser != null && _appUser.name == null)
-      return _loadingOther ? Container() : SignUp();
+    if (_loading) return SplashScreen();
+    if (_appUser != null && _appUser.name == null) return SignUp();
     if (_appUser != null && _appUser.uid != null) return HomeScreen();
-    return _loadingOther ? Container() : AuthScreen();
+    return AuthScreen();
   }
 }

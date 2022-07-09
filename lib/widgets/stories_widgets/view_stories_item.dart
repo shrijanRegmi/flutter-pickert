@@ -12,7 +12,7 @@ import 'package:imhotep/widgets/common_widgets/verified_user_badge.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../enums/subscription_type.dart';
 import '../../helpers/common_helper.dart';
 import '../../screens/friend_profile_screen.dart';
@@ -194,8 +194,8 @@ class _ViewStoriesItemState extends State<ViewStoriesItem>
             if (_texts.isNotEmpty) {
               _animation.stop();
               try {
-                if (await canLaunch('http://${_texts.first}')) {
-                  await launch('http://${_texts.first}');
+                if (await canLaunchUrlString('http://${_texts.first}')) {
+                  await launchUrlString('http://${_texts.first}');
                 } else {
                   throw Future.error('Unexpected error');
                 }
@@ -642,7 +642,7 @@ class _ViewStoriesItemState extends State<ViewStoriesItem>
                   child: Linkify(
                     onOpen: (link) async {
                       try {
-                        await launch(link.url);
+                        await launchUrlString(link.url);
                       } catch (e) {
                         print(e);
                         print('Error!!!: Opening link');

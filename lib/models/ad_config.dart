@@ -17,7 +17,7 @@ class AdConfig {
     this.logErrors = false,
     this.logErrorsForAll = false,
     this.maxGoogleAdsPerDay = -1,
-    this.chancesToShowCustomAds = 10.0,
+    this.chancesToShowCustomAds = 50.0,
     this.chancesToShowRewardedAds = 50.0,
     this.minDurationToShowAds = 900000,
     this.storiesAdInBetween = 2,

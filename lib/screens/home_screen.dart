@@ -10,7 +10,6 @@ import 'package:imhotep/widgets/common_widgets/avatar_builder.dart';
 import 'package:imhotep/widgets/common_widgets/rounded_icon_button.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
-import '../constants.dart';
 import '../services/ads/google_ads_provider.dart';
 import '../widgets/common_widgets/circular_number_indicator.dart';
 import 'main_tabs/feeds_search_tab.dart';
@@ -90,7 +89,7 @@ class _MyNavigationBarState extends State<MyNavigationBar>
     final HomeVm vm,
   ) {
     return Container(
-      color: Colors.black,
+      color: Color(0xff302f35),
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: TabBar(
         controller: _tabController,
@@ -107,7 +106,7 @@ class _MyNavigationBarState extends State<MyNavigationBar>
               'assets/svgs/explore_tab.svg',
               color: vm.activeIndex == 0 ? Colors.white : Color(0xff302f35),
             ),
-            bgColor: vm.activeIndex == 0 ? blueColor : Colors.white,
+            bgColor: vm.activeIndex == 0 ? Colors.black : Colors.white,
           ),
           RoundIconButton(
             icon: SvgPicture.asset(
@@ -124,27 +123,27 @@ class _MyNavigationBarState extends State<MyNavigationBar>
                         PeamanChatRequestStatus.accepted;
               }).length,
             ),
-            bgColor: vm.activeIndex == 1 ? blueColor : Colors.white,
+            bgColor: vm.activeIndex == 1 ? Colors.black : Colors.white,
           ),
           RoundIconButton(
             icon: SvgPicture.asset(
               'assets/svgs/articles_tab.svg',
               color: vm.activeIndex == 2 ? Colors.white : Color(0xff302f35),
             ),
-            bgColor: vm.activeIndex == 2 ? blueColor : Colors.white,
+            bgColor: vm.activeIndex == 2 ? Colors.black : Colors.white,
           ),
           RoundIconButton(
             icon: SvgPicture.asset(
               'assets/svgs/shop_tab.svg',
               color: vm.activeIndex == 3 ? Colors.white : Color(0xff302f35),
             ),
-            bgColor: vm.activeIndex == 3 ? blueColor : Colors.white,
+            bgColor: vm.activeIndex == 3 ? Colors.black : Colors.white,
           ),
           AvatarBuilder.image(
             appUser.photoUrl,
             size: 50.0,
             border: true,
-            borderColor: vm.activeIndex == 4 ? blueColor : Colors.white,
+            borderColor: vm.activeIndex == 4 ? Colors.black87 : Colors.white,
           ),
         ],
       ),

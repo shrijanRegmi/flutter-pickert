@@ -67,9 +67,10 @@ class _ChatsTabState extends State<ChatsTab> {
                     child: Column(
                       children: [
                         TabBar(
-                          labelColor: blackColor,
+                          labelColor: Color(0xff302f35),
                           unselectedLabelColor: greyColorshade400,
-                          indicatorColor: blackColor,
+                          indicatorColor: Color(0xff302f35),
+                          indicatorWeight: 1.0,
                           tabs: [
                             Tab(
                               icon: Text(

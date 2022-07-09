@@ -129,13 +129,14 @@ class FeedsSearchTab extends StatelessWidget {
 
   Widget _tabBarBuilder() {
     return TabBar(
-      labelColor: blueColor,
+      labelColor: Color(0xff302f35),
       unselectedLabelColor: greyColor,
       labelStyle: TextStyle(
-        fontWeight: FontWeight.bold,
         fontSize: 16.0,
         fontFamily: GoogleFonts.nunito().fontFamily,
       ),
+      indicatorColor: Color(0xff302f35),
+      indicatorWeight: 1.0,
       tabs: [
         Tab(
           text: 'Posts',

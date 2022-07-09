@@ -14,7 +14,6 @@ import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
-import '../../widgets/common_widgets/beta_badge.dart';
 import '../../widgets/common_widgets/circular_number_indicator.dart';
 import '../../widgets/feed_widgets/feeds_list.dart';
 import '../../widgets/stories_widgets/stories_list.dart';
@@ -70,6 +69,7 @@ class _ExploreTabState extends State<ExploreTab>
         return Scaffold(
           floatingActionButton: CommonHelper.canCreatePost(context)
               ? FloatingActionButton(
+                  backgroundColor: Color(0xff302f35),
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -159,16 +159,17 @@ class _ExploreTabState extends State<ExploreTab>
             begin: Alignment.topLeft,
             end: Alignment.topRight,
             colors: [
-              bluegradientColor.withOpacity(1),
-              yellowgradientColor.withOpacity(1)
+              Color(0xff302f35),
+              Color(0xff302f35),
             ],
           ),
         ),
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 5.0,
+            left: 10.0,
             right: 10.0,
             bottom: 8.0,
+            top: 10.0,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -178,29 +179,38 @@ class _ExploreTabState extends State<ExploreTab>
                   GestureDetector(
                     onTap: () => vm.scrollListToTop(),
                     child: SizedBox(
-                      child: Image.asset(
-                        'assets/logo.png',
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              width: 45.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/logo.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            'Pickert',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22.0,
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
                   SizedBox(
                     width: 10.0,
-                  ),
-                  // if (vm.stateType == StateType.busy)
-                  //   Padding(
-                  //     padding: const EdgeInsets.only(top: 6.0),
-                  //     child: Container(
-                  //       width: 25.0,
-                  //       height: 25.0,
-                  //       child: CircularProgressIndicator(
-                  //         color: Colors.white,
-                  //         strokeWidth: 2.0,
-                  //       ),
-                  //     ),
-                  //   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: BetaBadge(),
                   ),
                 ],
               ),
@@ -279,7 +289,6 @@ class _ExploreTabState extends State<ExploreTab>
             child: Container(
               decoration: BoxDecoration(
                 color: whiteColor,
-                borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -305,14 +314,13 @@ class _ExploreTabState extends State<ExploreTab>
                     children: [
                       TabBar(
                         controller: _tabController,
-                        labelColor: blueColor,
+                        labelColor: Color(0xff302f35),
                         labelStyle: TextStyle(
                           fontFamily: GoogleFonts.nunito().fontFamily,
-                          fontWeight: FontWeight.bold,
                         ),
                         unselectedLabelColor: greyColorshade400,
-                        indicatorColor: blueColor,
-                        indicatorWeight: 2.0,
+                        indicatorColor: Color(0xff302f35),
+                        indicatorWeight: 1.0,
                         tabs: [
                           Tab(
                             icon: Text(

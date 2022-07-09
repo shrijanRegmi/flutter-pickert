@@ -9,7 +9,7 @@ import 'package:imhotep/widgets/feed_widgets/feed_action_buttons.dart';
 import 'package:imhotep/widgets/feed_widgets/feeds_list.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../constants.dart';
 import '../models/feed_extra_data_model.dart';
@@ -113,7 +113,7 @@ class ViewSingleArticleScreen extends StatelessWidget {
                           onLinkTap: (link, rContext, data, element) async {
                             if (link != null) {
                               try {
-                                await launch(link);
+                                await launchUrlString(link);
                               } catch (e) {
                                 print(e);
                               }
@@ -149,8 +149,8 @@ class ViewSingleArticleScreen extends StatelessWidget {
                           borderRadius: 10.0,
                           onPressed: () async {
                             try {
-                              if (await canLaunch(_article.website)) {
-                                await launch(_article.website);
+                              if (await canLaunchUrlString(_article.website)) {
+                                await launchUrlString(_article.website);
                               }
                             } catch (e) {
                               print(e);

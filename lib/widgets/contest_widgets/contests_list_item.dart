@@ -149,21 +149,7 @@ class ContestListItem extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 20,
                   width: MediaQuery.of(context).size.width / 1.5,
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: blueColor,
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                      )
-                    ],
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        bluegradientColor,
-                        yellowgradientColor,
-                      ],
-                    ),
+                    color: Color(0xff302f35),
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
                   child: Center(

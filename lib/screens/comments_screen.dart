@@ -4,6 +4,7 @@ import 'package:imhotep/viewmodels/comments_vm.dart';
 import 'package:imhotep/viewmodels/vm_provider.dart';
 import 'package:imhotep/widgets/comments_widgets/comment_input.dart';
 import 'package:imhotep/widgets/comments_widgets/comments_list.dart';
+import 'package:imhotep/widgets/common_widgets/spinner.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
@@ -181,7 +182,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                         );
                       }
                       return Center(
-                        child: CircularProgressIndicator(),
+                        child: Spinner(),
                       );
                     },
                   ),

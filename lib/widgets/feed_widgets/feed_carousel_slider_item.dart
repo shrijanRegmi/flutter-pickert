@@ -4,7 +4,7 @@ import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:imhotep/models/custom_ad_model.dart';
 import 'package:imhotep/widgets/common_widgets/cached_network_video.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../constants.dart';
 
 enum _CarouselItemType {
@@ -279,7 +279,7 @@ class _FeedCarouselSliderItemState extends State<FeedCarouselSliderItem>
                   final _link = !widget.customAd!.link.contains('http')
                       ? 'http://${widget.customAd!.link}'
                       : widget.customAd!.link;
-                  await launch(_link);
+                  await launchUrlString(_link);
                 } catch (e) {
                   print(e);
                   print('Error!!!: Opening link');
@@ -310,7 +310,7 @@ class _FeedCarouselSliderItemState extends State<FeedCarouselSliderItem>
                   final _link = !widget.customAd!.link.contains('http')
                       ? 'http://${widget.customAd!.link}'
                       : widget.customAd!.link;
-                  await launch(_link);
+                  await launchUrlString(_link);
                 } catch (e) {
                   print(e);
                   print('Error!!!: Opening link');

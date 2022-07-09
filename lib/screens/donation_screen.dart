@@ -4,7 +4,7 @@ import 'package:imhotep/enums/state_type.dart';
 import 'package:imhotep/viewmodels/payment_vm.dart';
 import 'package:imhotep/viewmodels/vm_provider.dart';
 import 'package:imhotep/widgets/common_widgets/hotep_button.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class DonationScreen extends StatelessWidget {
   const DonationScreen({Key? key}) : super(key: key);
@@ -134,7 +134,8 @@ class DonationScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     onPressed: () async {
                       try {
-                        await launch('https://www.patreon.com/ImhotepMr');
+                        await launchUrlString(
+                            'https://www.patreon.com/ImhotepMr');
                       } catch (e) {
                         print(e);
                         print('Error!!!: Opening link');

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:imhotep/enums/contest_badge_type.dart';
 import 'package:imhotep/helpers/dialog_provider.dart';
 import 'package:imhotep/models/contest_badge_model.dart';
@@ -11,8 +10,6 @@ import 'package:provider/provider.dart';
 import '../../constants.dart';
 import '../../enums/state_type.dart';
 import '../../helpers/common_helper.dart';
-import '../../screens/donation_screen.dart';
-import '../../screens/subscription_screen.dart';
 import '../../viewmodels/profile_vm.dart';
 import '../../viewmodels/vm_provider.dart';
 import '../common_widgets/block_view_profile_selector.dart';
@@ -118,7 +115,7 @@ class ProfileMain extends StatelessWidget {
                     ),
               Divider(),
               type == _Type.personal
-                  ? _personalMiddleContentBuilder(context, vm, appUser!)
+                  ? Container()
                   : _friendMiddleContentBuilder(context, appUser!, vm),
               SizedBox(
                 height: type == _Type.friend ? 0.0 : 15.0,
@@ -238,104 +235,6 @@ class ProfileMain extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _personalMiddleContentBuilder(
-    final BuildContext context,
-    final ProfileVm vm,
-    final PeamanUser appUser,
-  ) {
-    String? _contestBadgeIcon;
-    String? _contestBadgeImg;
-    final _currentDate = DateTime.now();
-    final _expireDate = vm.contestBadge?.expiresAt == null
-        ? null
-        : DateTime.fromMillisecondsSinceEpoch(
-            vm.contestBadge!.expiresAt,
-          );
-    final _contestBadgeExpired =
-        _expireDate == null ? true : _currentDate.isAfter(_expireDate);
-
-    switch (vm.contestBadge?.type) {
-      case ContestBadgeType.gold:
-        _contestBadgeIcon = 'gold_medal';
-        _contestBadgeImg = 'gold';
-        break;
-      case ContestBadgeType.silver:
-        _contestBadgeIcon = 'silver_medal';
-        _contestBadgeImg = 'silver';
-        break;
-      case ContestBadgeType.bronze:
-        _contestBadgeIcon = 'bronze_medal';
-        _contestBadgeImg = 'bronze';
-        break;
-      default:
-    }
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => DonationScreen(),
-              ),
-            );
-          },
-          child: Image.asset(
-            'assets/images/donate_btn.png',
-            height: 35.0,
-          ),
-        ),
-        if (CommonHelper.isMaatWarrior(context))
-          GestureDetector(
-            onTap: () {
-              DialogProvider(context).showBadgeDialog(
-                badgeUrl: 'assets/images/maat_warrior_badge.png',
-              );
-            },
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: Get.height * 0.026,
-              child: Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Image.asset(
-                  'assets/warrior.png',
-                  scale: 0.6,
-                ),
-              ),
-            ),
-          ),
-        if (_contestBadgeIcon != null && !_contestBadgeExpired)
-          GestureDetector(
-            onTap: () {
-              DialogProvider(context).showBadgeDialog(
-                badgeUrl: 'assets/images/contest_badge_$_contestBadgeImg.png',
-              );
-            },
-            child: Image.asset(
-              'assets/images/${_contestBadgeIcon}.png',
-              height: 35.0,
-            ),
-          ),
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => SubscriptionScreen(),
-              ),
-            );
-          },
-          child: Image.asset(
-            'assets/images/subscribe_btn.png',
-            height: 35.0,
-          ),
-        ),
-      ],
     );
   }
 }

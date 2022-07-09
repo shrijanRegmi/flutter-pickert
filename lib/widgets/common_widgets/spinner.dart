@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-
 class Spinner extends StatelessWidget {
   final Color color;
   const Spinner({
     Key? key,
-    this.color = blueColor,
+    this.color = const Color(0xff302f35),
   }) : super(key: key);
 
   @override

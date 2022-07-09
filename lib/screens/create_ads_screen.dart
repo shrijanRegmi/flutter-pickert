@@ -5,7 +5,7 @@ import 'package:imhotep/models/custom_ad_model.dart';
 import 'package:imhotep/viewmodels/create_ads_vm.dart';
 import 'package:imhotep/viewmodels/vm_provider.dart';
 import 'package:imhotep/widgets/common_widgets/rounded_icon_button.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../constants.dart';
 import '../enums/state_type.dart';
@@ -324,7 +324,7 @@ class CreateAdsScreen extends StatelessWidget {
                     text: ad.link,
                     onOpen: (link) async {
                       try {
-                        await launch(link.url);
+                        await launchUrlString(link.url);
                       } catch (e) {
                         print(e);
                       }

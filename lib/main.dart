@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -24,6 +25,14 @@ void main() async {
   Stripe.publishableKey =
       'pk_live_51HBKxDHjFEGleUf9NWFBHNjeShc5Chm3yVbsLVosFEF8OBOl3GZCqBLrVxACEoLZgLCpeuWNNZ93QTYEijZA0GVb00TcCidHU3';
   MobileAds.instance.initialize();
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Color(0xff302f35),
+      systemNavigationBarColor: Color(0xff302f35),
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarIconBrightness: Brightness.light,
+    ),
+  );
   await Peaman.initializeApp();
   runApp(MyApp());
 }
@@ -31,22 +40,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  final _color = {
-    50: Color(0xFF5972FF),
-    100: Color(0xFF5972FF),
-    200: Color(0xFF5972FF),
-    300: Color(0xFF5972FF),
-    400: Color(0xFF5972FF),
-    500: Color(0xFF5972FF),
-    600: Color(0xFF5972FF),
-    700: Color(0xFF5972FF),
-    800: Color(0xFF5972FF),
-    900: Color(0xFF5972FF),
-  };
-
   @override
   Widget build(BuildContext context) {
-    MaterialColor blueColor = MaterialColor(0xFF5972FF, _color);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AppVm>(
@@ -61,11 +56,13 @@ class MyApp extends StatelessWidget {
         return WrapperBuilder(
           builder: (context) {
             return MaterialApp(
-              title: 'Mr. Imhotep',
+              title: 'Pickert',
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                fontFamily: GoogleFonts.nunito().fontFamily,
-                primarySwatch: blueColor,
+                fontFamily: GoogleFonts.nunito(
+                  color: Color(0xff302f35),
+                ).fontFamily,
+                primarySwatch: Colors.blue,
               ),
               home: Wrapper(),
             );

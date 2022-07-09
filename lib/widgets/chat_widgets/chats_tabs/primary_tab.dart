@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:imhotep/constants.dart';
-import 'package:imhotep/enums/subscription_type.dart';
-import 'package:imhotep/helpers/dialog_provider.dart';
 import 'package:imhotep/models/admin_model.dart';
-import 'package:imhotep/models/app_user_extra_data_model.dart';
 import 'package:imhotep/screens/conversation_screen.dart';
-import 'package:imhotep/screens/subscription_screen.dart';
 import 'package:imhotep/widgets/chat_widgets/chats_list.dart';
 import 'package:peaman/peaman.dart';
 import 'package:provider/provider.dart';
@@ -34,38 +29,17 @@ class PrimaryTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               HotepButton.bordered(
-                value: 'Ask a question to Mr. Imhotep',
-                borderColor: blueColor,
+                value: 'Ask a question to Mr. Pickert',
+                borderColor: Color(0xff302f35),
                 textStyle: TextStyle(
-                  color: blueColor,
+                  color: Color(0xff302f35),
                 ),
                 onPressed: () {
-                  // if user is not subscribed then show them popup
-                  final _appUserExtraData = AppUserExtraData.fromJson(
-                    appUser.extraData,
-                  );
-                  if (_appUserExtraData.subscriptionType !=
-                      SubscriptionType.level3) {
-                    return DialogProvider(context).showBadgeDialog(
-                      badgeUrl: 'assets/images/get_premium_dialog.png',
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => SubscriptionScreen(),
-                          ),
-                        );
-                      },
-                    );
-                  }
-                  //
-
                   // open chat with admin
                   final _admin = context.read<Admin?>();
                   if (_admin == null) {
                     return Fluttertoast.showToast(
-                      msg: 'An unexpected error occured!!!',
+                      msg: 'An unexpected error occured!',
                     );
                   }
                   Navigator.push(

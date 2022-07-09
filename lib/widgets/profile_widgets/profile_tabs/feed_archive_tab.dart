@@ -19,7 +19,7 @@ class FeedArchiveTab extends StatelessWidget {
       return ProfileEmptyBuilder(
         imgUrl: 'assets/Groupfvrt.png',
         description:
-            'This is your archive.\nOnce you start to save,\nyou can track your record here',
+            'This is your saved archive.\nOnce you start to save,\nyou can track your record here',
       );
     }
 

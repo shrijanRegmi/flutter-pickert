@@ -59,9 +59,10 @@ dependencies:
   image_picker: ^0.8.4+4
   intl: ^0.17.0
   inview_notifier_list: ^3.0.0
+  lottie: ^1.3.0
   path_provider: ^2.0.9
   peaman:
-    git: 
+    git:
       url: https://github.com/shrijanRegmi/peaman.git
       ref: main
   permission_handler: ^9.2.0
@@ -107,6 +108,7 @@ flutter:
     - assets/images/
     - assets/svgs/
     - assets/svg/
+    - assets/lottie/
     - assets/file/
     - assets/file/privacy_policy.html
     - assets/file/terms_and_condition.html

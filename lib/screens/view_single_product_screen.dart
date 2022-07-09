@@ -5,7 +5,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:imhotep/models/product_model.dart';
 import 'package:imhotep/screens/view_photo_screen.dart';
 import 'package:imhotep/widgets/common_widgets/hotep_button.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../constants.dart';
 
@@ -57,8 +57,8 @@ class ViewSingleProductScreen extends StatelessWidget {
                 borderRadius: 10.0,
                 onPressed: () async {
                   try {
-                    if (await canLaunch(product.website)) {
-                      await launch(product.website);
+                    if (await canLaunchUrlString(product.website)) {
+                      await launchUrlString(product.website);
                     }
                   } catch (e) {
                     print(e);
@@ -157,8 +157,8 @@ class ViewSingleProductScreen extends StatelessWidget {
         Linkify(
           onOpen: (link) async {
             try {
-              if (await canLaunch(link.url)) {
-                await launch(link.url);
+              if (await canLaunchUrlString(link.url)) {
+                await launchUrlString(link.url);
               }
             } catch (e) {
               print(e);

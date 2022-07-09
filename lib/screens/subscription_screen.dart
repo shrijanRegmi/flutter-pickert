@@ -117,7 +117,7 @@ class SubscriptionScreen extends StatelessWidget {
     return Column(
       children: [
         _featuresListItem(
-          title: 'Chat With Mr. Imhotep',
+          title: 'Chat With Mr. Pickert',
           locked: vm.selectedSubscriptionType != SubscriptionType.level3,
         ),
         _featuresListItem(

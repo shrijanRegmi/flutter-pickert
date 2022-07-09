@@ -33,16 +33,6 @@ class _SignUpState extends State<SignUp> {
           body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  bluegradientColor.withOpacity(0.8),
-                  yellowgradientColor.withOpacity(0.5)
-                ],
-              ),
-            ),
             child: SafeArea(
               child: Container(
                 height: MediaQuery.of(context).size.height,
@@ -115,7 +105,7 @@ class _SignUpState extends State<SignUp> {
                           whiteColor,
                           1,
                           16,
-                          20,
+                          14,
                           appUser == null
                               ? vm.signUpWithEmailAndPassword
                               : () => vm.updateUserDetails(appUser),
@@ -133,7 +123,7 @@ class _SignUpState extends State<SignUp> {
                             const Text(
                               "Don't have an Account?",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -148,8 +138,8 @@ class _SignUpState extends State<SignUp> {
                               child: const Text(
                                 "Login",
                                 style: TextStyle(
-                                  fontSize: 18,
-                                  color: bluegradientColor,
+                                  fontSize: 16.0,
+                                  color: Color(0xff302f35),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

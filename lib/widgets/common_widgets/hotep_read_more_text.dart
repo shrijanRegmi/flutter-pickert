@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:imhotep/constants.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HotepReadMoreText extends StatefulWidget {
   final String text;
@@ -78,8 +78,8 @@ class _HotepReadMoreTextState extends State<HotepReadMoreText> {
           style: widget.style,
           onOpen: (link) async {
             try {
-              if (await canLaunch(link.url)) {
-                await launch(link.url);
+              if (await canLaunchUrlString(link.url)) {
+                await launchUrlString(link.url);
               }
             } catch (e) {
               print(e);

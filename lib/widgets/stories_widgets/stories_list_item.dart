@@ -49,7 +49,7 @@ class _StoriesListItemState extends State<StoriesListItem> {
         final _userName = widget.moment.ownerId == _appUser.uid
             ? 'You'
             : _user.admin
-                ? 'Mr. Imhotep'
+                ? 'Mr. Pickert'
                 : '${_userNames.first}';
         final _thisMomentIndex =
             widget.moments.indexWhere((e) => e.id == widget.moment.id);

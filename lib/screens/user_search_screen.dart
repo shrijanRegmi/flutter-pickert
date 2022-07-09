@@ -3,6 +3,7 @@ import 'package:imhotep/enums/state_type.dart';
 import 'package:imhotep/screens/friend_profile_screen.dart';
 import 'package:imhotep/viewmodels/vm_provider.dart';
 import 'package:imhotep/widgets/common_widgets/hotep_searchbar.dart';
+import 'package:imhotep/widgets/common_widgets/spinner.dart';
 import 'package:imhotep/widgets/common_widgets/user_fetcher.dart';
 import 'package:imhotep/widgets/common_widgets/users_list.dart';
 import 'package:peaman/peaman.dart';
@@ -38,7 +39,7 @@ class UserSearchScreen extends StatelessWidget {
                   child: !vm.searchActive
                       ? vm.stateType == StateType.busy
                           ? Center(
-                              child: CircularProgressIndicator(),
+                              child: Spinner(),
                             )
                           : Container()
                       : SingleChildScrollView(
